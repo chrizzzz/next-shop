@@ -7,4 +7,5 @@ module.exports = {
     domains: ["fakestoreapi.com"],
   },
   pageExtensions: ["page.js"],
+  target: "experimental-serverless-trace",
 };
