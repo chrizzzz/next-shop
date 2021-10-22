@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 export default function Article({
   id,
@@ -10,6 +11,7 @@ export default function Article({
   category,
   price,
 }) {
+  const router = useRouter();
   return (
     <div className={`flex flex-wrap gap-44 justify-center items-center  m-44 `}>
       <div className="">
@@ -28,11 +30,13 @@ export default function Article({
         <button className="bg-yellow-600 rounded text-white p-2 inline-block mt-8">
           Buy now for {price}€
         </button>
-        <Link href="/articles" passHref>
-          <button className=" rounded text-gray-400 p-2 inline-block mt-8 ml-3 underline">
-            ➡ back
-          </button>
-        </Link>
+
+        <button
+          onClick={() => router.back()}
+          className=" rounded text-gray-400 p-2 inline-block mt-8 ml-3 underline"
+        >
+          ➡ back
+        </button>
       </div>
     </div>
   );
