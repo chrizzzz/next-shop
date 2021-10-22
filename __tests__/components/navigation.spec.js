@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import Navigation from "./navigation";
+import Navigation from "../../components/navigation/navigation";
 
 jest.mock("react-i18next", () => ({
   useTranslation: (namespace) => ({

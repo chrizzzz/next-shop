@@ -1,10 +1,15 @@
 import { render } from "@testing-library/react";
-import Home, { getStaticProps, getStaticPaths } from "./index";
-import CategoryCard from "../components/categoryCard/categoryCard";
+import Home, {
+  getStaticProps,
+  translationEnglish,
+} from "../../pages/index.page";
+import CategoryCard from "../../components/categoryCard/categoryCard";
 import axios from "axios";
 
 jest.mock("axios");
-jest.mock("../components/categoryCard/categoryCard", () => jest.fn(() => null));
+jest.mock("../../components/categoryCard/categoryCard", () =>
+  jest.fn(() => null)
+);
 
 jest.mock("react-i18next", () => ({
   useTranslation: (namespace) => ({
@@ -65,17 +70,8 @@ describe("getStaticProps", () => {
     axios.get.mockResolvedValue({ data: [{ id: 1 }] });
   });
 
-  it("should get translated categories from backend", async () => {
-    await getStaticProps({ locale: "en" });
-
-    expect(axios.get).toHaveBeenCalledWith(
-      "http://localhost:3000/api/categories?lang=en"
-    );
-  });
-
   it("should handover translated categories as prop to component", async () => {
     const result = await getStaticProps({ locale: "en" });
-
-    expect(result.props.categories).toEqual([{ id: 1 }]);
+    expect(result.props.categories).toEqual(translationEnglish);
   });
 });

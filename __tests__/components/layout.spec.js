@@ -1,14 +1,20 @@
 import { render } from "@testing-library/react";
-import Layout from "./layout";
+import Layout from "../../components/layout/layout";
 
 // eslint-disable-next-line
-jest.mock("../logo/logo", () => () => <img src="test.jpg" alt="logo" />);
+jest.mock("../../components/logo/logo", () => () => (
+  <img src="test.jpg" alt="logo" />
+));
 
 // eslint-disable-next-line
-jest.mock("../navigation/navigation", () => () => <nav>Navigation</nav>);
+jest.mock("../../components/navigation/navigation", () => () => (
+  <nav>Navigation</nav>
+));
 
 // eslint-disable-next-line
-jest.mock("../footer/footer", () => () => <footer>Footer</footer>);
+jest.mock("../../components/footer/footer", () => () => (
+  <footer>Footer</footer>
+));
 
 describe("layout", () => {
   it("should match snapshot", () => {

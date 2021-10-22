@@ -55,7 +55,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const response = await fetch(
-    `http://localhost:3000/api/products/${params.id}`
+    `https://fakestoreapi.com/products/${params.id}`
   );
   const article = await response.json();
 

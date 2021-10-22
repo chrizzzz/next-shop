@@ -1,4 +1,7 @@
-import handler, { translationEnglish, translationGerman } from "./categories";
+import handler, {
+  translationEnglish,
+  translationGerman,
+} from "../../pages/api/categories.page";
 import axois from "axios";
 jest.mock("axios");
 

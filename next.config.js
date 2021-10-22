@@ -6,4 +6,5 @@ module.exports = {
   images: {
     domains: ["fakestoreapi.com"],
   },
+  pageExtensions: ["page.js"],
 };

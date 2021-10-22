@@ -36,10 +36,7 @@ export default function Articles({ articles, category }) {
 }
 
 export async function getStaticPaths() {
-  const response = await fetch("http://localhost:3000/api/categories?lang=en");
-  const categories = await response.json();
-
-  const paths = categories.map((category) => ({
+  const paths = translationEnglish.map((category) => ({
     params: { id: `${category.name}` },
   }));
 
@@ -48,7 +45,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const response = await axios.get(
-    `http://localhost:3000/api/products?category=${params.id}&limit=4`
+    `https://fakestoreapi.com/products/category/${params.id}?limit=4`
   );
 
   const articles = response.data;
@@ -66,3 +63,26 @@ export async function getStaticProps({ params }) {
     props: { articles, category: params.id },
   };
 }
+
+export const translationEnglish = [
+  {
+    id: "men's clothing",
+    name: "men's clothing",
+    image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+  },
+  {
+    id: "jewelery",
+    name: "jewelery",
+    image: "https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg",
+  },
+  {
+    id: "electronics",
+    name: "electronics",
+    image: "https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg",
+  },
+  {
+    id: "women's clothing",
+    name: "women's clothing",
+    image: "https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg",
+  },
+];

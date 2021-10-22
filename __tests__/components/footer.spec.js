@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import Footer from "./footer";
+import Footer from "../../components/footer/footer";
 
 jest.mock("react-i18next", () => ({
   useTranslation: (namespace) => ({

@@ -1,4 +1,4 @@
-import handler from "./products";
+import handler from "../../pages/api/products.page";
 import axois from "axios";
 jest.mock("axios");
 

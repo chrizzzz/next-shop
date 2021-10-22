@@ -1,4 +1,4 @@
-import ArticleList from "../../../components/articleList/articleList";
+import ArticleList from "../../components/articleList/articleList";
 
 import { useState } from "react";
 import axios from "axios";
@@ -31,21 +31,8 @@ export default function Articles({ articles }) {
   );
 }
 
-export async function getStaticPaths() {
-  const response = await fetch("http://localhost:3000/api/categories?lang=en");
-  const categories = await response.json();
-
-  const paths = categories.map((category) => ({
-    params: { id: `${category.name}` },
-  }));
-
-  return { paths, fallback: "blocking" };
-}
-
-export async function getStaticProps({ params }) {
-  const response = await axios.get(
-    `http://localhost:3000/api/products?category=${params.id}&limit=4`
-  );
+export async function getStaticProps(context) {
+  const response = await axios.get("https://fakestoreapi.com/products?limit=4");
 
   const articles = response.data;
 

@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import Logo from "./logo";
+import Logo from "../../components/logo/logo";
 
 // eslint-disable-next-line
 jest.mock("next/image", () => (props) => {

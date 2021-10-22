@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import About from "./about";
+import About from "../../pages/about.page";
 
 jest.mock("react-i18next", () => ({
   useTranslation: (namespace) => ({

@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import CategoryCard from "./categoryCard";
+import CategoryCard from "../../components/categoryCard/categoryCard";
 
 // eslint-disable-next-line
 jest.mock("next/image", () => (props) => {
