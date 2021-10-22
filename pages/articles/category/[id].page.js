@@ -50,15 +50,6 @@ export async function getStaticProps({ params }) {
 
   const articles = response.data;
 
-  if (!articles) {
-    return {
-      redirect: {
-        destination: "/",
-        permanent: false,
-      },
-    };
-  }
-
   return {
     props: { articles, category: params.id },
   };
