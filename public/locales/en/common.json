@@ -1,0 +1,22 @@
+{
+  "footer": {
+    "about": "about",
+    "imprint": "imprint",
+    "contacts": "contacts",
+    "press": "press",
+    "career": "Career"
+  },
+  "header": {
+    "navigation": {
+      "productLink": "Products"
+    }
+  },
+  "index": {
+    "warning": " Warning: This is a fake shop. You can not buy something here !!!!!!!",
+    "categoryHeadline": "product categories"
+  },
+  "about": {
+    "heading": "About this page",
+    "content": "this is a fake shop web side."
+  }
+}

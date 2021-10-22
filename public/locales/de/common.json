@@ -1,0 +1,22 @@
+{
+  "footer": {
+    "about": "Über uns",
+    "imprint": "Impressum",
+    "contacts": "Kontakte",
+    "press": "Presse",
+    "career": "Karriere"
+  },
+  "header": {
+    "navigation": {
+      "productLink": "Produkte"
+    }
+  },
+  "index": {
+    "warning": " Warnung: Diese Seite ist kein echter Shop. Sie ist fake,hier kann man nichts kaufen !!!!!!!",
+    "categoryHeadline": "Produkt-Kategorien"
+  },
+  "about": {
+    "heading": "Über diese Seite",
+    "content": "Diese Seite ist kein echter Shop sonder ein fake Shop"
+  }
+}
