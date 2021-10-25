@@ -37,15 +37,20 @@ export default function Articles({ articles, category }) {
 
 export async function getStaticPaths() {
   const paths = translationEnglish.map((category) => ({
-    params: { id: `${category.name}` },
+    params: { id: `${category.id}` },
   }));
 
   return { paths, fallback: "blocking" };
 }
 
 export async function getStaticProps({ params }) {
+  const ifManOrWomanClothing = params.id === "men" || params.id === "women";
+  const categoryName = ifManOrWomanClothing
+    ? `${params.id}'s clothing`
+    : params.id;
+
   const response = await axios.get(
-    `https://fakestoreapi.com/products/category/${params.id}?limit=4`
+    `https://fakestoreapi.com/products/category/${categoryName}?limit=4`
   );
 
   const articles = response.data;
@@ -57,7 +62,7 @@ export async function getStaticProps({ params }) {
 
 export const translationEnglish = [
   {
-    id: "men's clothing",
+    id: "men",
     name: "men's clothing",
     image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
   },
@@ -72,7 +77,7 @@ export const translationEnglish = [
     image: "https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg",
   },
   {
-    id: "women's clothing",
+    id: "women",
     name: "women's clothing",
     image: "https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg",
   },

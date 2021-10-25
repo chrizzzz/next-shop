@@ -40,7 +40,7 @@ export async function getStaticProps({ locale }) {
 
 export const translationEnglish = [
   {
-    id: "men's clothing",
+    id: "men",
     name: "men's clothing",
     image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
   },
@@ -55,7 +55,7 @@ export const translationEnglish = [
     image: "https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg",
   },
   {
-    id: "women's clothing",
+    id: "women",
     name: "women's clothing",
     image: "https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg",
   },
@@ -63,13 +63,13 @@ export const translationEnglish = [
 
 export const translationGerman = [
   {
-    id: "men's clothing",
+    id: "men",
     name: "Herren Bekleidung",
     image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
   },
   {
     id: "jewelery",
-    name: "Schmick",
+    name: "Schmuck",
     image: "https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg",
   },
   {
@@ -78,7 +78,7 @@ export const translationGerman = [
     image: "https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg",
   },
   {
-    id: "women's clothing",
+    id: "women",
     name: "Damen Bekleidung",
     image: "https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg",
   },
