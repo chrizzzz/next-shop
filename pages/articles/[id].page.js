@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 export default function Article({
   id,
@@ -53,13 +54,16 @@ export async function getStaticPaths() {
   return { paths, fallback: "blocking" };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params, locale }) {
   const response = await fetch(
     `https://fakestoreapi.com/products/${params.id}`
   );
   const article = await response.json();
 
   return {
-    props: article,
+    props: {
+      ...article,
+      ...(await serverSideTranslations(locale, ["common"])),
+    },
   };
 }

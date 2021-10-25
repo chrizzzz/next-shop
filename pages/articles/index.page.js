@@ -1,4 +1,5 @@
 import ArticleList from "../../components/articleList/articleList";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import { useState } from "react";
 import axios from "axios";
@@ -9,7 +10,7 @@ export default function Articles({ articles }) {
 
   const loadContent = () => {
     axios
-      .get(`http://localhost:3000/api/products?limit=${currentItemsCount + 4}`)
+      .get(`/api/products?limit=${currentItemsCount + 4}`)
       .then((response) => {
         updateCurrentItemCount(currentItemsCount + 4);
         setArticlesToDisplay(response.data);
@@ -31,12 +32,12 @@ export default function Articles({ articles }) {
   );
 }
 
-export async function getStaticProps(context) {
+export async function getStaticProps({ locale }) {
   const response = await axios.get("https://fakestoreapi.com/products?limit=4");
 
   const articles = response.data;
 
   return {
-    props: { articles },
+    props: { articles, ...(await serverSideTranslations(locale, ["common"])) },
   };
 }

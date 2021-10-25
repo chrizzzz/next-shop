@@ -1,5 +1,5 @@
 import ArticleList from "../../../components/articleList/articleList";
-
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useState } from "react";
 import axios from "axios";
 
@@ -43,7 +43,7 @@ export async function getStaticPaths() {
   return { paths, fallback: "blocking" };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params, locale }) {
   const ifManOrWomanClothing = params.id === "men" || params.id === "women";
   const categoryName = ifManOrWomanClothing
     ? `${params.id}'s clothing`
@@ -56,7 +56,11 @@ export async function getStaticProps({ params }) {
   const articles = response.data;
 
   return {
-    props: { articles, category: params.id },
+    props: {
+      articles,
+      category: params.id,
+      ...(await serverSideTranslations(locale, ["common"])),
+    },
   };
 }
 
